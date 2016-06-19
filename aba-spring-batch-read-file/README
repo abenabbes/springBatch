@@ -1,4 +1,10 @@
+######################################################
+# Autor : ben abbes ali
+# Date  : 19/06/2016
+# Projet: Spring Batch
+######################################################
+
 Ce projet utilise le framework spring-batch version 3 pour lire un fichier plat.
-Ce projet utiise une base de données de type H2 en mémoire. 
+Ce projet utilise une base de données de type H2 en mémoire. 
 
 Le pilotage de ce projet ce fait par une classe main java  : /src/main/java/aba/spring/batch/pilotage/LancerBatch.java
