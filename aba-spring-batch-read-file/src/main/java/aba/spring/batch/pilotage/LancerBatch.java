@@ -23,7 +23,7 @@ public class LancerBatch {
 
 	@SuppressWarnings("resource")
 	public static void main(String[] args) {
-
+		log.debug("debut");
 		//Noms des fichier de config des JOBs
 		String job_uniFiles = "spring/jobs-uni-file-context.xml";
 		

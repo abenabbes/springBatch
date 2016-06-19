@@ -1,35 +1,37 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:jdbc="http://www.springframework.org/schema/jdbc" 
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 	http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+	http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context-3.2.xsd
 	http://www.springframework.org/schema/jdbc 
 	http://www.springframework.org/schema/jdbc/spring-jdbc-3.2.xsd">
 
-  <!-- connect to database -->
-  <bean id="dataSource"
-	class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-	<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-	<property name="url" value="jdbc:mysql://localhost:3306/springbatchdev" />
-	<property name="username" value="root" />
-	<property name="password" value="" />
-  </bean>
-  
-   <bean id="dataSource2"
-	class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-	<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-	<property name="url" value="jdbc:mysql://localhost:3306/springbatchdev" />
-	<property name="username" value="root" />
-	<property name="password" value="" />
-  </bean>
+   <!-- ============= fichiers de config =============-->
+   <context:property-placeholder location="classpath:properties/jdbc.properties"/>
 
+  <!-- ======== initialisation des la base de donneés par les tables technique de spring batch et les tables du projet-->  
+  <jdbc:embedded-database id="initDatabase" type="H2">
+  	<!-- specifique pour spring batch -->
+	<jdbc:script location="classpath*:org/springframework/batch/core/schema-drop-h2.sql" />
+	<jdbc:script location="classpath*:org/springframework/batch/core/schema-h2.sql"/>
+	<!-- specifique pour le projet -->
+	<jdbc:script location="classpath*:/scripts/create_database.sql" />
+  </jdbc:embedded-database>
+  
+  <!-- =========== la datasource du projet ============= -->
+   <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+   	<property name="driverClassName" value="${jdbc.driverClassName}"/>
+   	<property name="url" value="${jdbc.url}"/>
+   	<property name="username" value="${jdbc.username}"/>
+   	<property name="password" value="${jdbc.password}"/>
+   </bean>
+   
+   <!-- ============ la yransaction manager ================ -->
   <bean id="transactionManager"
 	class="org.springframework.batch.support.transaction.ResourcelessTransactionManager" />
 	
-  <!-- create job-meta tables automatically -->
-  <jdbc:initialize-database data-source="dataSource">
-	<jdbc:script location="org/springframework/batch/core/schema-drop-mysql.sql" />
-	<jdbc:script location="org/springframework/batch/core/schema-mysql.sql" />
-  </jdbc:initialize-database>
 
 </beans>
