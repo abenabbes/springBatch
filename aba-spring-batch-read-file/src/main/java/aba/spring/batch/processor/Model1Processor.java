@@ -21,12 +21,10 @@ public class Model1Processor implements ItemProcessor<Model1Vo, Model1Vo> {
 		
 		Model1Vo ret1 = new Model1Vo();
 		
-		if(item.getNom().endsWith("FILE_1")){
 			ret1.setNom(item.getNom());
 			ret1.setUneDate(item.getUneDate());
 			ret1.setVal(item.getVal());
 			
-		}
 		
 		log.debug("FIN de processor Model1Vo");
 		

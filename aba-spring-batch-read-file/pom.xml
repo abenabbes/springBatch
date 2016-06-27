@@ -78,6 +78,17 @@
             <scope>compile</scope>
         </dependency>
         
+        <!-- ======== Dependance test ========== -->
+        <dependency>
+		<groupId>org.springframework.batch</groupId>
+		    <artifactId>spring-batch-test</artifactId>
+		    <version>${spring.batch.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+		    <artifactId>junit</artifactId>
+		    <version>4.11</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<finalName>aba-spring-batch-read-file</finalName>

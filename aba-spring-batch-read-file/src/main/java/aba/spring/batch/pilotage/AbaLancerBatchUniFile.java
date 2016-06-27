@@ -17,9 +17,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @author ali
  *
  */
-public class LancerBatch {
+public class AbaLancerBatchUniFile {
 
-	private static final Logger log = LoggerFactory.getLogger(LancerBatch.class); 
+	private static final Logger log = LoggerFactory.getLogger(AbaLancerBatchUniFile.class); 
 
 	@SuppressWarnings("resource")
 	public static void main(String[] args) {
