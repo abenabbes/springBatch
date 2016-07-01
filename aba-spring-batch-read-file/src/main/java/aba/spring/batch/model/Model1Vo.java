@@ -26,6 +26,10 @@ public class Model1Vo implements Serializable{
 	private Date uneDate;
 	
 	private String val;
+	
+	private Long idJobInstance;
+	
+	private Date dateModif;
 
 	public long getId() {
 		return id;
@@ -59,10 +63,39 @@ public class Model1Vo implements Serializable{
 		this.val = val;
 	}
 
+	/**
+	 * @return the idJobInstance
+	 */
+	public Long getIdJobInstance() {
+		return idJobInstance;
+	}
+
+	/**
+	 * @param idJobInstance the idJobInstance to set
+	 */
+	public void setIdJobInstance(Long idJobInstance) {
+		this.idJobInstance = idJobInstance;
+	}
+
+	/**
+	 * @return the dateModif
+	 */
+	public Date getDateModif() {
+		return dateModif;
+	}
+
+	/**
+	 * @param dateModif the dateModif to set
+	 */
+	public void setDateModif(Date dateModif) {
+		this.dateModif = dateModif;
+	}
+
 	@Override
 	public String toString() {
-		return "Model1 [id=" + id + ", nom=" + nom + ", uneDate=" + uneDate
-				+ ", val=" + val + "]";
+		return "Model1Vo [id=" + id + ", nom=" + nom + ", uneDate=" + uneDate
+				+ ", val=" + val + ", idJobInstance=" + idJobInstance
+				+ ", dateModif=" + dateModif + "]";
 	}
 
 }

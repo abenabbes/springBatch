@@ -24,5 +24,7 @@
   <import resource="classpath:springTest/database-context-test.xml" />
   <import resource="classpath:springTest/spring-batch-context-test.xml" />
   <import resource="classpath:spring/jobs-uni-file-context.xml" />
+  <import resource="classpath:spring/beans-project-context.xml" />
+  
 
 </beans>
