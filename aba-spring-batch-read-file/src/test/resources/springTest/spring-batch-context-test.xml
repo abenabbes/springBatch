@@ -3,16 +3,16 @@
 	xmlns:aop="http://www.springframework.org/schema/aop" 
 	xsi:schemaLocation="
 	http://www.springframework.org/schema/beans 
-	http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+	http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
 	http://www.springframework.org/schema/aop 
-	http://www.springframework.org/schema/aop/spring-aop-3.2.xsd">
+	http://www.springframework.org/schema/aop/spring-aop-4.1.xsd">
 
   <!-- historisation de traitement du batch dans la base de données -->
   <bean id="jobRepository"
 	class="org.springframework.batch.core.repository.support.JobRepositoryFactoryBean">
 	<property name="dataSource" ref="dataSourceMYSQLDev" />
 	<property name="transactionManager" ref="transactionManager" />
-	<property name="databaseType" value="mysql" />
+	<property name="databaseType" value="h2" />
   </bean>
 
   <!-- historisation de traitement du batch pour les database en mémoire -->
@@ -43,9 +43,4 @@
 	<!-- bean de test -->
 	<bean id="jobLauncherTestUtils" name="jobLauncherTestUtils" class="org.springframework.batch.test.JobLauncherTestUtils"/>
 	
-<!-- 	<aop:config> -->
-<!-- 		<aop:pointcut id="launching" -->
-<!-- 			expression="execution(* com.googlecode.goodsamples.springbatch.retry.RetryTasklet.*(..))"></aop:pointcut> -->
-<!-- 		<aop:advisor pointcut-ref="launching" advice-ref="batchRetryAdvice" order="-1"></aop:advisor> -->
-<!-- 	</aop:config> -->
 </beans>

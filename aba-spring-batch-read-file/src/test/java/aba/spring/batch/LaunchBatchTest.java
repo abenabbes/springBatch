@@ -19,11 +19,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  *
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {
-        "classpath:spring/database-context-test.xml",
-        "classpath:spring/spring-batch-context-test.xml",
-        "classpath:spring/jobs-uni-file-context.xml" })
-public class AppTest {
+@ContextConfiguration(locations = {"classpath:springTest/lancher-jobs-context-test.xml" })
+public class LaunchBatchTest {
 
 	@Autowired
     private JobLauncherTestUtils jobLauncherTestUtils;

@@ -25,7 +25,7 @@ public class AbaLancerBatchUniFile {
 	public static void main(String[] args) {
 		log.debug("debut");
 		//Noms des fichier de config des JOBs
-		String job_uniFiles = "spring/jobs-uni-file-context.xml";
+		String job_uniFiles = "spring/lancher-jobs-context.xml";
 		
 		String[] springConfig  = {job_uniFiles};
 			
