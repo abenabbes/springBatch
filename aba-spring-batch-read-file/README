@@ -4,7 +4,17 @@
 # Projet: Spring Batch
 ######################################################
 
+------------------
+# Generalites :
+------------------
 Ce projet utilise le framework spring-batch version 3 pour lire un fichier plat.
-Ce projet utilise une base de données de type H2 en mémoire. 
+Ce projet utilise une base de données de type MYSQL pour le traitement en production
+et H2 en mémoire pour les test JUnit. 
 
 Le pilotage de ce projet ce fait par une classe main java  : /src/main/java/aba/spring/batch/pilotage/LancerBatch.java
+
+----------------
+# Important :
+----------------
+Ce batch utilise dans le reader et le writer les implémentations de spring batch directement dans le fichier de config du job
+sans passe par des classe java de developpement

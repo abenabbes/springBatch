@@ -12,12 +12,12 @@
 
    <!-- ============= fichiers de config =============-->
 	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-    <property name="locations">
-        <list>
-            <value>classpath:properties/jdbc.properties</value>
-            <value>classpath:properties/batch.properties</value>
-        </list>
-    </property>
+	    <property name="locations">
+	        <list>
+	            <value>classpath:properties/jdbc.properties</value>
+	            <value>classpath:properties/batch.properties</value>
+	        </list>
+	    </property>
     </bean>
 
   <!-- ============= imports resources ============= -->
@@ -25,6 +25,5 @@
   <import resource="classpath:springTest/spring-batch-context-test.xml" />
   <import resource="classpath:spring/jobs-uni-file-context.xml" />
   <import resource="classpath:spring/beans-project-context.xml" />
-  
 
 </beans>

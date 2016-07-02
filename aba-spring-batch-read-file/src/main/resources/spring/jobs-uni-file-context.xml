@@ -29,7 +29,7 @@
   	       -> FALSE = ne pas désactiver le redemarrage de step
   	  -->
 	  <batch:tasklet transaction-manager="transactionManager" 
-	                 start-limit="1" 
+	                 start-limit="${start.limit}" 
 	                 allow-start-if-complete="false">
 	                 
 			<batch:chunk reader="cvsFileItemReader" 
