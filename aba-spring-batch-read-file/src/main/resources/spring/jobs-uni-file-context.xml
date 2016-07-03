@@ -52,7 +52,7 @@
 		  <!-- split it -->
 		  <property name="lineTokenizer">
 		        <bean  class="org.springframework.batch.item.file.transform.DelimitedLineTokenizer">
-				<property name="names" value="nom,uneDate,val" />
+				<property name="names" value="${NAME_COLUMN_MAPPING}" />
 				<property name="delimiter" value="${separateur.file}" />
 			</bean>
 		  </property>
@@ -73,14 +73,7 @@
   <bean id="mysqlItemWriter"
 	class="org.springframework.batch.item.database.JdbcBatchItemWriter">
 	<property name="dataSource" ref="dataSourceMYSQLDev" />
-	<property name="sql">
-	  <value>
-            <![CDATA[        
-            	insert into model1(NOM,UNEDATE,VAL,IDJOBINSTANCE,DATEMODIF) 
-			    values (:nom, :uneDate, :val, :idJobInstance, :dateModif)
-            ]]>
-	  </value>
-	</property>
+	<property name="sql" value="${SQL_INSERT_QUERY}" />
 	<!-- It will take care matching between object property and sql name parameter -->
 	<property name="itemSqlParameterSourceProvider">
 		<bean
